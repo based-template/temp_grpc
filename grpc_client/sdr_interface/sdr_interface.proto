@@ -1,0 +1,46 @@
+/* ------------------------------------------------------------------------------
+ *                              UNCLASSIFIED
+ * ------------------------------------------------------------------------------
+*/
+/* ------------------------------------------------------------------------------ 
+ * Module Name: sdr_interface.proto
+ * Module Creation: Dec 2 2020
+ * Author(s): S. Furman
+ * Modification History:
+ * Synopsis: sdr interface RPC and message definitions
+ * ------------------------------------------------------------------------------
+*/
+/* ------------------------------------------------------------------------------
+ * Copyright 2020 ANDRO Computational Solutions, LLC.  All Rights Reserved
+ * ------------------------------------------------------------------------------
+*/
+
+syntax = "proto3";
+
+package sdrinterface;
+
+service SendReceive {
+
+    // client to server stream
+    rpc Send(stream Packet) returns (SendSummary) {}
+
+    // server to client stream
+    rpc Receive(ReceiveParameters) returns (stream Packet) {} 
+
+}
+
+message Packet {
+    string vlanid = 1;
+    string sourceid = 2;
+    string destinationid = 3;
+    int32 pktid = 4;
+    string data = 5;
+}
+
+message SendSummary {
+    int32 txpackets = 1;
+}
+
+message ReceiveParameters {
+
+}
