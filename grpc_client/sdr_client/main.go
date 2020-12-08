@@ -6,7 +6,8 @@ import (
 	"os"
 	"time"
 
-	pb "github.com/based-template/temp_grpc/sdr_interface"
+	//pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	pb "github.com/based-template/temp_grpc/grpc_client/sdr_interface"
 	"google.golang.org/grpc"
 )
 

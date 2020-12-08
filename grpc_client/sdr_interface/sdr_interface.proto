@@ -17,18 +17,13 @@
 
 syntax = "proto3";
 
-option go_package = "github.com/based-template/temp_grpc/sdr_interface";
+option go_package = "github.com/based-template/temp_grpc/grpc_client/sdr_interface";
 
 package sdr_interface;
 
 service SendReceive {
-
     // client to server stream
-    rpc Send(stream Packet) returns (SendSummary) {}
-
-    // server to client stream
-    rpc Receive(ReceiveParameters) returns (stream Packet) {} 
-
+    rpc Send(Packet) returns (SendSummary) {}
 }
 
 message Packet {
@@ -41,8 +36,4 @@ message Packet {
 
 message SendSummary {
     int32 txpackets = 1;
-}
-
-message ReceiveParameters {
-
 }
