@@ -17,6 +17,8 @@
 
 syntax = "proto3";
 
+option go_package = "github.com/based-template/temp_grpc/sdr_interface";
+
 package sdr_interface;
 
 service SendReceive {
